@@ -23,57 +23,15 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
-/**
- * Activity para escolha de arquivos/diretorios.
- * 
- * @author android
- * 
- */
 public class FileDialog extends ListActivity {
 
-	/**
-	 * Chave de um item da lista de paths.
-	 */
 	private static final String ITEM_KEY = "key";
-
-	/**
-	 * Imagem de um item da lista de paths (diretorio ou arquivo).
-	 */
 	private static final String ITEM_IMAGE = "image";
-
-	/**
-	 * Diretorio raiz.
-	 */
 	private static final String ROOT = "/";
-
-	/**
-	 * Parametro de entrada da Activity: path inicial. Padrao: ROOT.
-	 */
 	public static final String START_PATH = "START_PATH";
-
-	/**
-	 * Parametro de entrada da Activity: filtro de formatos de arquivos. Padrao:
-	 * null.
-	 */
 	public static final String FORMAT_FILTER = "FORMAT_FILTER";
-
-	/**
-	 * Parametro de saida da Activity: path escolhido. Padrao: null.
-	 */
 	public static final String RESULT_PATH = "RESULT_PATH";
-
-	/**
-	 * Parametro de entrada da Activity: tipo de selecao: pode criar novos paths
-	 * ou nao. Padrao: nao permite.
-	 * 
-	 * @see {@link SelectionMode}
-	 */
 	public static final String SELECTION_MODE = "SELECTION_MODE";
-
-	/**
-	 * Parametro de entrada da Activity: se e permitido escolher diretorios.
-	 * Padrao: falso.
-	 */
 	public static final String CAN_SELECT_DIR = "CAN_SELECT_DIR";
 
 	private List<String> path = null;
@@ -98,10 +56,6 @@ public class FileDialog extends ListActivity {
 	private File selectedFile;
 	private HashMap<String, Integer> lastPositions = new HashMap<String, Integer>();
 
-	/**
-	 * Called when the activity is first created. Configura todos os parametros
-	 * de entrada e das VIEWS..
-	 */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -199,12 +153,6 @@ public class FileDialog extends ListActivity {
 
 	}
 
-	/**
-	 * Monta a estrutura de arquivos e diretorios filhos do diretorio fornecido.
-	 * 
-	 * @param dirPath
-	 *            Diretorio pai.
-	 */
 	private void getDirImpl(final String dirPath) {
 
 		currentPath = dirPath;
@@ -247,7 +195,6 @@ public class FileDialog extends ListActivity {
 			} else {
 				final String fileName = file.getName();
 				final String fileNameLwr = fileName.toLowerCase();
-				// se ha um filtro de formatos, utiliza-o
 				if (formatFilter != null) {
 					boolean contains = false;
 					for (int i = 0; i < formatFilter.length; i++) {
@@ -261,7 +208,6 @@ public class FileDialog extends ListActivity {
 						filesMap.put(fileName, fileName);
 						filesPathMap.put(fileName, file.getPath());
 					}
-					// senao, adiciona todos os arquivos
 				} else {
 					filesMap.put(fileName, fileName);
 					filesPathMap.put(fileName, file.getPath());
@@ -297,12 +243,6 @@ public class FileDialog extends ListActivity {
 		mList.add(item);
 	}
 
-	/**
-	 * Quando clica no item da lista, deve-se: 1) Se for diretorio, abre seus
-	 * arquivos filhos; 2) Se puder escolher diretorio, define-o como sendo o
-	 * path escolhido. 3) Se for arquivo, define-o como path escolhido. 4) Ativa
-	 * botao de selecao.
-	 */
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 
@@ -361,7 +301,7 @@ public class FileDialog extends ListActivity {
 	}
 
 	/**
-	 * Define se o botao de CREATE e visivel.
+	 * 
 	 * 
 	 * @param v
 	 */
@@ -374,7 +314,7 @@ public class FileDialog extends ListActivity {
 	}
 
 	/**
-	 * Define se o botao de SELECT e visivel.
+	 * 
 	 * 
 	 * @param v
 	 */

@@ -81,6 +81,7 @@ public final class R {
         public static final int title_activity_main=0x7f070001;
     }
     public static final class style {
+        public static final int ActionButtonStyle=0x7f090002;
         /** 
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
@@ -93,7 +94,6 @@ public final class R {
          */
         public static final int AppBaseTheme=0x7f090000;
         /**  Application theme. 
- All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f090001;
     }

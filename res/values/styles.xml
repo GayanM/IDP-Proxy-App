@@ -16,6 +16,16 @@
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+        <item name="android:actionButtonStyle">@style/ActionButtonStyle</item>
     </style>
+    
+    <style name="ActionButtonStyle" parent="@android:style/Widget.Holo.Light.ActionButton">
+    <item name="android:minWidth">0dip</item>
+    <item name="android:paddingLeft">0dip</item>
+    <item name="android:paddingTop">0dip</item>
+    <item name="android:paddingBottom">0dip</item>
+    <item name="android:paddingRight">0dip</item> 
+                         
+</style>
 
 </resources>
